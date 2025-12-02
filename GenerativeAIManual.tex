@@ -67,6 +67,27 @@ guidance on how GitHub works, or how to submit a pull request, you can check the
 
 \subsection{Arduino IDE}
 
+\subsubsection{Installing Libraries}
+Libraries are a crucial component and starting point towards success in EE450. There are multiple ways to download libraries, which may be necessary to troubleshoot if you run into issues, however this will describe the most common two.
+
+\paragraph{Library Manager}
+\begin{enumerate}
+    \item The Library Manager in Arduino IDE looks like stacked books on the left sidebar. Other ways to navigate here are to click \texttt{Tools} and then \texttt{Manage Libraries} or click on \texttt{Sketch}, \texttt{Include Library}, and then \texttt{Manage Libraries} to navigate to the Library Manager window.
+    \item Within the Library Manager, you will see a search box. Typing in this search box will search all installed and available libraries within Arduino IDE.
+    \item Search for the library you need like Pixy2, Servo.h, etc. Once selected click ``Install,'' allow the system to process and show that the library is installed.
+\end{enumerate}
+
+\paragraph{\texttt{.zip} Library}
+Sometimes during the class you will come across a library that is not included in Arduino IDE and will require you to source the \texttt{.zip} file. Here are the easiest steps:
+\begin{enumerate}
+    \item Download the non-extracted version of the \texttt{.zip} file.
+    \item In Arduino IDE go to \texttt{Sketch}, then \texttt{Include Library}, and add the \texttt{.zip} Library.
+    \item Select the \texttt{.zip} library and open it. Wait for the program to confirm the library has been installed.
+\end{enumerate}
+
+\textbf{Note:} Some libraries might need some troubleshooting. Extracting all files from the \texttt{.zip} and saving them in a folder on your computer, and then moving the library into the Arduino \texttt{libraries} folder on your computer, is a way to resolve this issue and try again.
+
+
 \section{Code Management and Structure}
 % Below are a few recommended subsections for you to contribute to, but feel free to create your own if you think it is appropriate.
 \subsection{Incorporating the Sense-Decide-Act Paradigm} 
@@ -74,6 +95,29 @@ guidance on how GitHub works, or how to submit a pull request, you can check the
 
 \subsection{Implementing States and Using State Diagrams} 
 % Are state diagrams helpful at the start of a project? How did you use them?
+
+State diagrams are extremely helpful at the start of EE450 projects even if they are not required/graded because they give you a clear visual of how your robot should behave. When you breakdown your system into states, it becomes much easier to understand what the robot is supposed to do at any given time and what events cause it to switch behaviors.
+
+In EE450, your robot will almost always need to move between different modes (for example: \texttt{SAFE}, \texttt{FOLLOW}, \texttt{OBJECT DETECTED}, or \texttt{ATTACK/DEFEND}). A state diagram lets you map these different mdoes out before you begin to write any code.
+
+For this project with these states, we used a state diagram to plan the overall flow of the robot. Before touching the Arduino code, we mapped out:
+\begin{itemize}
+    \item what each state is supposed to do,
+    \item what inputs trigger a transition (like a button press or sensor reading),
+    \item and what the robot should do after switching states.
+\end{itemize}
+
+Having the state diagram made implementation much easier because the code could then be built one state at a time. Each state became its own section of the \texttt{loop()} function or its own block. If something was not functioning properly, it was easier to trace which state caused the issue. Especially when working with a new platform like the Traxxas, differentiating between hardware and software issues was eased by using a state machine diagram. Also, if it is demo day and you do not have a fully working robot, having individual states from your state diagram functioning can still earn you points. Breaking your code into clear states allows you to get portions of the robot working even if the whole system is not complete. This means you can demonstrate specific state behaviors and still receive partial credit instead of ending up with no points if the full integration is giving you trouble.
+
+Overall, state diagrams can help you:
+\begin{itemize}
+    \item understand the robot's behavior before coding or asking chatgpt to help you build your code,
+    \item write cleaner, more concise, and organized code,
+    \item help you understand chatgpt generated code more efficiently, 
+    \item and troubleshoot faster when things don’t work.
+\end{itemize}
+
+They are a simple but an extremely useful tool, especially when your robot starts getting more complex. For some, in the earlier projects you may feel like the state diagram is unnecessary, however highly reccomend getting some repetitions early on, because they are extremely helpful in later projects. Others may beenfit from a state diagram from the start of Project 2 to the conclusion of Project 5. 
 
 \subsection{File Structure and Version Management --- Avoid Drowning in Code} 
 % Arduino sketches can grow into large, complex files. How did you organize them internally so you are always confident
