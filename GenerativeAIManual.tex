@@ -30,6 +30,10 @@ First.Last@westpoint.edu}\\
 West Point, NY \\
 First.Last@westpoint.edu}
 }
+\IEEEauthorblockN{Cadet Taylor Brown}\\
+\IEEEauthorblockA{\textit{United States Military Academy}\\
+West Point, NY \\
+Taylor.Brown@westpoint.edu}
 
 \maketitle
 
@@ -94,7 +98,6 @@ Libraries are a crucial component and starting point towards success in EE450. T
 
 \caption{EE450 Best Practices Images}
 \end{figure}
-
 \end{enumerate}
 
 \paragraph{\texttt{.zip} Library}
@@ -120,7 +123,6 @@ Sometimes during the class you will come across a library that is not included i
 
 \subsection{Implementing States and Using State Diagrams} 
 % Are state diagrams helpful at the start of a project? How did you use them?
-
 State diagrams are extremely helpful at the start of EE450 projects even if they are not required/graded because they give you a clear visual of how your robot should behave. When you breakdown your system into states, it becomes much easier to understand what the robot is supposed to do at any given time and what events cause it to switch behaviors.
 
 In EE450, your robot will almost always need to move between different modes (for example: \texttt{SAFE}, \texttt{FOLLOW}, \texttt{OBJECT DETECTED}, or \texttt{ATTACK/DEFEND}). A state diagram lets you map these different mdoes out before you begin to write any code.
@@ -155,7 +157,20 @@ They are a simple but an extremely useful tool, especially when your robot start
 
 \subsection{Managing and Integrating Generated Code} 
 % give guidance on how to prompt Copilot -- how do you structure the prompt, what context do you give it, and what do you
-% do with what it generates?
+% do with what it generates? 
+Using generated code from sources like ChatGPT, Copilot, etc., can be an extremely useful tool in working as a teammate to assist in fulfilling the project requirements and aiding in understanding the prompt. However, actually getting your robot to fully perform the task requirements will require you to understand the code. It is best to use AI to accelerate the progress, but not replace your understanding of solving the problem. Here are some recommended tips for prompting Copilot and other artificial intelligence platforms and managing the outputs:
+
+\begin{enumerate}
+    \item Copilot is most effective when it knows exactly what you would like it to help you with. Think of components like: What does this code do? What variables are being considered as inputs, and what are the outputs? What are the specifications and constraints of the project, including what hardware is being used in the specific project? How should the states transition?  
+    Here is an example of a prompt:
+    \begin{quote}
+    ``Build code for the DRIVE state that reads ultrasonic sensor distance and drives the servos forward only when distance is less than 30. Print sensor values to the serial monitor.''
+    \end{quote}
+    \item Give Copilot the current state of your project. This means: What components have you already constructed in the process? By giving Copilot the pin mapping, defined variables, and completed state diagram, the code it generates will be easier to integrate into your own code.
+    \item What do you do with what it generates? Make sure you read it carefully and ensure there are no functions or variables that conflict with your existing code. Change some components of it, like names or parameters, so that it fits with your intended design. Test the code incrementally or by itself first, this means either test the code in a new sketch or add serial prints throughout the code to ensure the behavior is congruent with your intended design. Recognize that the produced code will not be perfect, but it will help show you different methods or structures of completing tasks.
+\end{enumerate}
+
+
 
 \subsection{Documentation and Citation of Generated Code} 
 % How do you document and cite generated code? How do you avoid plagiarism and ensure all generated code is clearly marked?
